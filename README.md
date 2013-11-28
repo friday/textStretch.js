@@ -1,13 +1,15 @@
 <!--
 ## To do
-1. New event binding method. Current one binds a new event every time textStretch is run. Better to bind one event, which goes through some list of methods or elements.
-2. Document every aspect
-3. Test with web fonts again
-4. Test browsers & mobile browsers (pinch-zoom)
-5. Put up forkable codepen-link
-6. Set up grunt-script for minification
-7. More cases? Width auto for calc-class?
-8. Go back to cloning instead?
+inline-block elements and block elements with width? Width auto for calc-class?
+Font declared with "!important"?
+New event binding method. Current one binds a new event every time textStretch is run. Better to bind one event, which goes through some list of methods or elements.
+Document every aspect
+Test with web fonts again
+Test browsers & mobile browsers (pinch-zoom)
+Put up forkable codepen-link
+Set up grunt-script for minification
+More cases?
+Go back to cloning instead?
 -->
 
 # textStretch.js
@@ -32,6 +34,7 @@ Load jQuery and the script.
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="jquery.textStretch.js"></script>
 ```
+
 Apply textStretch to a set of elements
 
 ```javascript
@@ -45,7 +48,6 @@ Using the json-format
 2. maxFontSize - Maximum font size (optional)
 3. minFontSize - Minimum font size (optional)
 4. refresh - Set to true if you changed the text or font-size. textStretch caches part of the calculation, which needs to be recalculated in these cases.
-
 
 ```javascript
 $(".stretch").textStretch({width: 300}); // force width to 300
@@ -62,6 +64,5 @@ $(".stretch").textStretch({minFontSize: 0}); // minFontSize disabled again
 ```
 
 ## Note
-1. Doesn't work for inline or inline-block elements. It really wouldn't make sense if it did.
-2. Will break if font has been declared with "!important". Just don't do it.
-3. If using web fonts, call from window.load, not document.ready. Else it will be calculated for the fallback font.
+1. Doesn't work for inline-elements. It really wouldn't make sense if it did.
+2. If using web fonts, call from window.load, not document.ready. Else it will be calculated for the fallback font.
