@@ -1,12 +1,4 @@
-﻿/*
-@todo: New event binding method to avoid binding multiple events for the same element.
-85% :(
-https://github.com/davatron5000/FitText.js/commit/57ce345437f9b1871ece163a15954595a6e02b1e
-Put up forkable codepen-link
-Set up grunt-script for minification
-*/
-
-/**
+﻿/**
  * textStretch.js pre-version alpha (2013.11.29)
  *
  * Copyright (c) 2012, 2013 Albin Larsson (mail@albinlarsson.com)
@@ -79,7 +71,7 @@ Set up grunt-script for minification
 		}
 		// bind to resize ands viewport-change. not needed for fixed width
 		if (_useElementWidth) {
-			$(window).on("orientationchange resize", _dotextStretch);
+			$(window).on("orientationchange.textStretch resize.textStretch", _dotextStretch);
 		}
 		return $elements;
 	};
