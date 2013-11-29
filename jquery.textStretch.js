@@ -1,7 +1,6 @@
 ﻿/*
 @todo: New event binding method to avoid binding multiple events for the same element.
 85% :(
-Fix IE7
 https://github.com/davatron5000/FitText.js/commit/57ce345437f9b1871ece163a15954595a6e02b1e
 Put up forkable codepen-link
 Set up grunt-script for minification
