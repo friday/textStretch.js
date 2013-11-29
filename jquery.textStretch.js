@@ -40,7 +40,9 @@ Set up grunt-script for minification
 					if (typeof _settings.width !== "number") {
 						throw "$.textStretch error: Width is not a number";
 					}
-					_width = _settings.width;
+					else {
+						_width = _settings.width;
+					}
 				}
 
 				// checking if we already have pre-stored _letterAverage
