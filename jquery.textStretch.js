@@ -1,7 +1,7 @@
 ﻿/*
 @todo: New event binding method to avoid binding multiple events for the same element.
 85% :(
-Fix IE8
+Fix IE7
 https://github.com/davatron5000/FitText.js/commit/57ce345437f9b1871ece163a15954595a6e02b1e
 Put up forkable codepen-link
 Set up grunt-script for minification
@@ -18,7 +18,7 @@ Set up grunt-script for minification
 (function ($) {
 	"use strict";
 	//  add class for calculating width. let me know if you see this and know a better way
-	$("<style>").text(".textStretch-calc{ *display: inline !important; display: inline-block !important; white-space: nowrap !important; width: auto !important; text-align: left !important; }").appendTo("head");
+	$("<style>.textStretch-calc{ display: inline-block !important; *display: inline !important; white-space: nowrap !important; width: auto !important; text-align: left !important; }</style>").appendTo("head");
 
 	$.fn.textStretch = function (options) {
 		var _settings, _dotextStretch, _useElementWidth, _recalc, _letterAverage, _fontSize, _width, _i, $this, $elements = $(this);
