@@ -1,5 +1,14 @@
-﻿/**
- * textStretch.js v0.7 (2013.11.28)
+﻿/*
+@todo: New event binding method to avoid binding multiple events for the same element.
+85% :(
+Fix IE8
+https://github.com/davatron5000/FitText.js/commit/57ce345437f9b1871ece163a15954595a6e02b1e
+Put up forkable codepen-link
+Set up grunt-script for minification
+*/
+
+/**
+ * textStretch.js pre-version alpha (2013.11.29)
  *
  * Copyright (c) 2012, 2013 Albin Larsson (mail@albinlarsson.com)
  * Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
@@ -9,13 +18,13 @@
 (function ($) {
 	"use strict";
 	//  add class for calculating width. let me know if you see this and know a better way
-	$("<style>").text(".textStretch-calc{ *display: inline; display: inline-block; white-space: nowrap; text-align: left; }").appendTo("head");
+	$("<style>").text(".textStretch-calc{ *display: inline !important; display: inline-block !important; white-space: nowrap !important; width: auto !important; text-align: left !important; }").appendTo("head");
 
 	$.fn.textStretch = function (options) {
 		var _settings, _dotextStretch, _useElementWidth, _recalc, _letterAverage, _fontSize, _width, _i, $this, $elements = $(this);
 
-		// adding defaults
-		_settings = $.extend($.fn.textStretch.defaults, options);
+		// import user settings
+		_settings = $.extend($.textStretch.defaults, options);
 
 		// no width specified. use element width (doesn't work for for inline or inline-blocks)
 		_useElementWidth = (_settings.width === null);
@@ -35,18 +44,18 @@
 				}
 
 				// checking if we already have pre-stored _letterAverage
-				if(_settings.refresh || !(_letterAverage = $this.data("letterAverage"))){
+				if(_settings.refresh || !(_letterAverage = $this.data("textStretchLetterAverage"))){
 					// temporarily apply class for measuring width
 					$this.addClass("textStretch-calc");
 
-					// width of text / 97% of font-size (to be safe)
-					_letterAverage = ($this.width() / (parseInt($this.css("fontSize"), 10) * 0.97));
+					// width of text / 90% of font-size (to be safe)
+					_letterAverage = ($this.width() / (parseInt($this.css("fontSize"), 10) * 0.90));
 
 					// remove measuring-class
 					$this.removeClass("textStretch-calc");
 
 					// store in element for faster regeneration
-					$this.data("letterAverage", _letterAverage);
+					$this.data("textStretchLetterAverage", _letterAverage);
 				}
 
 				// overwritten unless within specified font-size span
@@ -67,16 +76,18 @@
 		if (_recalc) {
 			_dotextStretch();
 		}
-		// bind to resize ands viewport-change. not needed for fixed width.
+		// bind to resize ands viewport-change. not needed for fixed width
 		if (_useElementWidth) {
 			$(window).on("orientationchange resize", _dotextStretch);
 		}
 		return $elements;
 	};
-	$.fn.textStretch.defaults = {
-		width: null,
-		minFontSize: 0,
-		maxFontSize: Number.POSITIVE_INFINITY,
-		refresh: false
+	$.textStretch = {
+		defaults: {
+			width: null,
+			minFontSize: 0,
+			maxFontSize: Number.POSITIVE_INFINITY,
+			refresh: false
+		}
 	};
 }(jQuery));

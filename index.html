@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="http://fonts.googleapis.com/css?family=Fascinate|Miniver|Lobster|Monoton" rel="stylesheet">
+		<style>
+			body {
+				background-color: #333;
+				padding: 20px;
+			}
+			.stretch {
+				line-height: 1;
+				display: block;
+				text-align: justify;
+				word-spacing: -.2em;
+				margin: 0 auto -.5em; }
+				.stretch:after {
+					content: " ";
+					display: inline-block;
+					width: 100%;
+				}
+			.fascinate { font-family: Fascinate; color: #3a7483; text-shadow: 2px 2px #7b90a3; }
+			.monoton { font-family: Monoton; color: #63833a; text-shadow: 2px 2px #c5e98f; }
+			.lobster { font-family: Lobster; color: rgba(172, 123, 61, 0.66); text-shadow: 2px 2px #cebe97; }
+			.miniver { font-family: Miniver; color: #a2402d; text-shadow: 2px 2px #ac8e6e; }
+		</style>
+	</head>
+	<body>
+		<p class="fascinate stretch">Lorem ipsum</p>
+		<p class="monoton stretch">dolor sit amet</p>
+		<p class="lobster stretch">consectetur adipiscing elit</p>
+		<p class="miniver stretch">Donec ut diam a est</p>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="jquery.textStretch.js"></script>
+		<script>
+			$(window).load(function () {
+				$(".stretch").textStretch();
+			});
+		</script>
+	</body>
+</html>
