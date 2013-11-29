@@ -1,6 +1,6 @@
 # textStretch.js
 
-# Under development
+## Under development
 
 A jQuery extension for stretching a text to the width of the element (or a fixed width) by changing it's font-size.
 
