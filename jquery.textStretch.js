@@ -12,7 +12,7 @@
 	$("<style>.textStretch-calc{ display: inline-block !important; *display: inline !important; white-space: nowrap !important; width: auto !important; text-align: left !important; }</style>").appendTo("head");
 
 	$.fn.textStretch = function (options) {
-		var _settings, _dotextStretch, _useElementWidth, _recalc, _letterAverage, _fontSize, _width, _i, $this, $elements = $(this);
+		var _settings, _dotextStretch, _useElementWidth, _recalc, _letterAverage, _fontSize, _width, _i, $this, $elements = this;
 
 		// import user settings
 		_settings = $.extend($.textStretch.defaults, options);
