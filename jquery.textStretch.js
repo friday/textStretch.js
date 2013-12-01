@@ -14,25 +14,27 @@
 	$.fn.textStretch = function (options) {
 		var _settings, _dotextStretch, _useElementWidth, _recalc, _letterAverage, _fontSize, _width, _i, $this;
 
-		// import user settings
+		// import user settings/arguments
 		_settings = $.extend($.textStretch.defaults, options);
 
+		// check user arguments
+		(function(){
+			for (_i = 0; _i < arguments.length; _i += 1) {
+				if (typeof _settings[arguments[_i].name] !== arguments[_i].type) {
+					throw "textStretch error. Argument \"" + arguments[_i].name + "\" (" + _settings[arguments[_i].name] + ") is not a number";
+				}
+			}
+		}({name: "width", type: "number"}, {name: "minFontSize", type: "number"}, {name: "maxFontSize", type: "number"}, {name: "refresh", type: "boolean"}));
+
 		// no width specified. use element width (doesn't work for for inline or inline-blocks)
-		_useElementWidth = (_settings.width === null);
+		_useElementWidth = (_settings.width === 0);
 
 		_dotextStretch = function (elements) {
 			for (_i = 0; _i < elements.length; _i += 1) {
 				$this = $(elements[_i]);
 
 				// use element's width if no width specified
-				if (_useElementWidth) {
-					_width = $this.width();
-				} else {
-					if (typeof _settings.width !== "number") {
-						throw "$.textStretch error: Width is not a number";
-					}
-					_width = _settings.width;
-				}
+				_width = _useElementWidth ? $this.width() : _settings.width;
 
 				_letterAverage = $this.data("textStretchLetterAverage");
 
@@ -87,7 +89,7 @@
 	};
 	$.textStretch = {
 		defaults: {
-			width: null,
+			width: 0,
 			minFontSize: 0,
 			maxFontSize: Number.POSITIVE_INFINITY,
 			refresh: false
