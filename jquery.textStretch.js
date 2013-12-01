@@ -1,5 +1,5 @@
 ﻿/**
- * textStretch.js pre-version alpha (2013.11.29)
+ * textStretch.js pre-version alpha (2013.12.01)
  *
  * Copyright (c) 2012, 2013 Albin Larsson (mail@albinlarsson.com)
  * Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
@@ -12,7 +12,7 @@
 	$("<style>.textStretch-calc{ display: inline-block !important; *display: inline !important; white-space: nowrap !important; width: auto !important; text-align: left !important; }</style>").appendTo("head");
 
 	$.fn.textStretch = function (options) {
-		var _settings, _dotextStretch, _useElementWidth, _recalc, _letterAverage, _fontSize, _width, _i, $this, $elements = this;
+		var _settings, _dotextStretch, _useElementWidth, _recalc, _letterAverage, _fontSize, _width, _i, $this;
 
 		// import user settings
 		_settings = $.extend($.textStretch.defaults, options);
@@ -20,9 +20,9 @@
 		// no width specified. use element width (doesn't work for for inline or inline-blocks)
 		_useElementWidth = (_settings.width === null);
 
-		_dotextStretch = function () {
-			for (_i = 0; _i < $elements.length; _i += 1) {
-				$this = $($elements[_i]);
+		_dotextStretch = function (elements) {
+			for (_i = 0; _i < elements.length; _i += 1) {
+				$this = $(elements[_i]);
 
 				// use element's width if no width specified
 				if (_useElementWidth) {
@@ -31,13 +31,13 @@
 					if (typeof _settings.width !== "number") {
 						throw "$.textStretch error: Width is not a number";
 					}
-					else {
-						_width = _settings.width;
-					}
+					_width = _settings.width;
 				}
 
+				_letterAverage = $this.data("textStretchLetterAverage");
+
 				// checking if we already have pre-stored _letterAverage
-				if(_settings.refresh || !(_letterAverage = $this.data("textStretchLetterAverage"))){
+				if(_settings.refresh || !_letterAverage){
 					// temporarily apply class for measuring width
 					$this.addClass("textStretch-calc");
 
@@ -63,17 +63,27 @@
 		};
 
 		// run
-		_dotextStretch();
+		_dotextStretch(this);
 
 		// recalculate if needed
 		if (_recalc) {
-			_dotextStretch();
+			_dotextStretch(this);
 		}
-		// bind to resize ands viewport-change. not needed for fixed width
+
+		// handle resize ands viewport-change. not needed for fixed width
 		if (_useElementWidth) {
-			$(window).on("orientationchange.textStretch resize.textStretch", _dotextStretch);
+			// add new elements to list.
+			$.textStretch.elements = $.textStretch.elements.add(this);
+
+			// bind to events
+			if(!$.textStretch.eventIsBound){
+				$(window).on("orientationchange.textStretch resize.textStretch", function(){
+					_dotextStretch($.textStretch.elements);
+				});
+				$.textStretch.eventIsBound = true;
+			}
 		}
-		return $elements;
+		return this;
 	};
 	$.textStretch = {
 		defaults: {
@@ -81,6 +91,8 @@
 			minFontSize: 0,
 			maxFontSize: Number.POSITIVE_INFINITY,
 			refresh: false
-		}
+		},
+		elements: $([]),
+		eventIsBound : false
 	};
 }(jQuery));
