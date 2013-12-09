@@ -42,8 +42,8 @@
 				// temporarily apply class for measuring width
 				element.className += " textStretch-calc";
 
-				// width of text / 100%
-				_letterAverage = element.clientWidth / (parseInt(_getStyle(element,"font-size", "fontSize"), 10));
+				// width of text relative to font
+				_letterAverage = element.clientWidth / (parseInt(_getStyle(element, "font-size", "fontSize"), 10));
 
 				// overwritten unless within specified font-size span
 				_fontSize = Math.min(Math.max(parseInt(_width / _letterAverage, 10), _settings.minFontSize), _settings.maxFontSize);
@@ -66,7 +66,7 @@
 		// run
 		_textStretch(this);
 
-		// recalculate if needed
+		// recalculate if vertical scrollbar has been added or removed due to first run
 		if (_recalc) {
 			_textStretch(this);
 		}
