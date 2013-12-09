@@ -17,13 +17,13 @@
 		_settings = $.extend($.textStretch.defaults, options);
 
 		// check user arguments
-		(function(){
-			for (_i = 0; _i < arguments.length; _i += 1) {
-				if (typeof _settings[arguments[_i].name] !== arguments[_i].type) {
-					throw "textStretch error. Argument \"" + arguments[_i].name + "\" (" + _settings[arguments[_i].name] + ") is not a number";
+		(function(args){
+			for (_i = 0; _i < args.length; _i += 1) {
+				if(typeof _settings[args[_i]] !== "number") {
+					throw "textStretch error. Argument \"" + args[_i] + "\" must be a number. Argument given was \"" + _settings[args[_i]] + "\".";
 				}
 			}
-		}({name: "width", type: "number"}, {name: "minFontSize", type: "number"}, {name: "maxFontSize", type: "number"}));
+		}(["width", "minFontSize", "maxFontSize"]));
 
 		// no width specified. use element width (doesn't work for for inline or inline-blocks)
 		_useElementWidth = (_settings.width === 0);
