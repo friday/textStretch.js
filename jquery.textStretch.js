@@ -45,10 +45,10 @@
 					element.className += " textStretch-calc";
 
 					// width of text / 100%
-					_letterAverage = (element.clientWidth / (parseInt(_getStyle(element,"font-size", "fontSize"), 10) * 0.90));
+					_letterAverage = element.clientWidth / (parseInt(_getStyle(element,"font-size", "fontSize"), 10));
 
 					// remove measuring-class
-					element.className += element.className.substr(0, element.className.length - 17);
+					element.className = element.className.substr(0, element.className.length - 17);
 
 					// store in element for faster regeneration
 					element.setAttribute("data-textStretchLetterAverage", _letterAverage);
