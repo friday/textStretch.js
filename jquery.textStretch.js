@@ -23,7 +23,7 @@
 					throw "textStretch error. Argument \"" + arguments[_i].name + "\" (" + _settings[arguments[_i].name] + ") is not a number";
 				}
 			}
-		}({name: "width", type: "number"}, {name: "minFontSize", type: "number"}, {name: "maxFontSize", type: "number"}, {name: "refresh", type: "boolean"}));
+		}({name: "width", type: "number"}, {name: "minFontSize", type: "number"}, {name: "maxFontSize", type: "number"}));
 
 		// no width specified. use element width (doesn't work for for inline or inline-blocks)
 		_useElementWidth = (_settings.width === 0);
@@ -39,26 +39,24 @@
 				// use element's width if no width specified
 				_width = _useElementWidth ? element.clientWidth : _settings.width;
 
-				// checking if we already have pre-stored _letterAverage
-				if(_settings.refresh || !(_letterAverage = element.getAttribute("data-textStretchLetterAverage"))){
-					// temporarily apply class for measuring width
-					element.className += " textStretch-calc";
+				// temporarily apply class for measuring width
+				element.className += " textStretch-calc";
 
-					// width of text / 100%
-					_letterAverage = element.clientWidth / (parseInt(_getStyle(element,"font-size", "fontSize"), 10));
-
-					// remove measuring-class
-					element.className = element.className.substr(0, element.className.length - 17);
-
-					// store in element for faster regeneration
-					element.setAttribute("data-textStretchLetterAverage", _letterAverage);
-				}
+				// width of text / 100%
+				_letterAverage = element.clientWidth / (parseInt(_getStyle(element,"font-size", "fontSize"), 10));
 
 				// overwritten unless within specified font-size span
 				_fontSize = Math.min(Math.max(parseInt(_width / _letterAverage, 10), _settings.minFontSize), _settings.maxFontSize);
 
 				// apply font-size
 				element.style.fontSize = _fontSize + "px";
+
+				// sometimes new text will be too wide due to browsers rounding letter-spacing to even pixels
+				if(element.clientWidth > _width) {
+					element.style.fontSize = _fontSize - 1 + "px";
+				}
+				// remove measuring-class
+				element.className = element.className.substr(0, element.className.length - 17);
 
 				// determine if a vertical scrollbar has been added or removed, in which case we have to recalculate
 				_recalc = (_useElementWidth && _width !== element.clientWidth);
@@ -92,8 +90,7 @@
 		defaults: {
 			width: 0,
 			minFontSize: 0,
-			maxFontSize: Number.POSITIVE_INFINITY,
-			refresh: false
+			maxFontSize: Number.POSITIVE_INFINITY
 		},
 		elements: $([]),
 		eventIsBound : false
