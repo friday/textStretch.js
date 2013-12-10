@@ -1,5 +1,5 @@
 /**
- * textStretch.js 0.9 (2013.12.10)
+ * textStretch.js 0.9.1 (2013.12.10)
  *
  * Copyright (c) 2012, 2013 Albin Larsson (mail@albinlarsson.com)
  * Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
@@ -24,6 +24,8 @@
 				}
 			}
 		}(["minFontSize", "maxFontSize"]));
+
+		_settings.maxFontSize = _settings.maxFontSize || Number.POSITIVE_INFINITY;
 
 		function _textStretch(elements) {
 			for (_i = 0; _i < elements.length; _i += 1) {
@@ -79,7 +81,7 @@
 	$.textStretch = {
 		defaults: {
 			minFontSize: 0,
-			maxFontSize: Number.POSITIVE_INFINITY
+			maxFontSize: 0
 		},
 		elements: $([]),
 		eventIsBound : false

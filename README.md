@@ -31,8 +31,8 @@ $(function () {
 It's that easy!
 
 ### Optional arguments
-* maxFontSize - Maximum font size
-* minFontSize - Minimum font size
+* maxFontSize - Maximum font size. Set to 0 to disable
+* minFontSize - Minimum font size. Set to 0 to disable
 
 ```javascript
 $(".stretch").textStretch({ minFontSize: 12 }); // minimum font size
@@ -42,9 +42,9 @@ $(".stretch").textStretch({ minFontSize: 12, minFontSize: 64 }); // min & max fo
 You can also change the defaults
 
 ```javascript
-$.textStretch.defaults.minFontSize = 12; // minimum font size for future calls
-$(".stretch").textStretch(); // minFontSize will be 12, as defined above
-$(".stretch").textStretch({ minFontSize: 0 }); // minFontSize overspecified (disabled)
+$.textStretch.defaults.maxFontSize = 100; // max font size for future calls
+$(".stretch").textStretch(); // max font size will be 100 pixels, as defined above
+$(".stretch").textStretch({ maxFontSize: 0 }); // maxFontSize overspecified (disabled)
 ```
 
 ### Good to know
