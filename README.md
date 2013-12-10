@@ -42,13 +42,13 @@ $(".stretch").textStretch({ minFontSize: 12, minFontSize: 64 }); // min & max fo
 You can also change the defaults
 
 ```javascript
-$.textStretch.defaults.minFontSize = 12; // minimum font size for future calls, unless called with an overspecifying argument
-$(".stretch").textStretch(); // minFontSize is now 12, as defined above
-$(".stretch").textStretch({ minFontSize: 0 }); // minFontSize is disabled for this call
+$.textStretch.defaults.minFontSize = 12; // minimum font size for future calls
+$(".stretch").textStretch(); // minFontSize will be 12, as defined above
+$(".stretch").textStretch({ minFontSize: 0 }); // minFontSize overspecified (disabled)
 ```
 
 ### Good to know
 * If using web fonts: Call from window.load (not document.ready) to be sure the font loads first.
 * Elements with `display:inline` or `display:inline-block` without a specified width will not stretch. It really wouldn't make sense if they did.
 * Will break in some cases if you use the `!important` css rule.
-* `line-height`, `letter-spacing` and `word-spacing won't scale if specified using `px` unit. See [#8](https://github.com/friday/textStretch.js/issues/8)
+* `line-height`, `letter-spacing` and `word-spacing` won't scale if specified using `px` unit. See [#8](https://github.com/friday/textStretch.js/issues/8)
