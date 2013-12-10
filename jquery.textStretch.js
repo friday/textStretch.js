@@ -1,5 +1,5 @@
 /**
- * textStretch.js pre-version alpha (2013.12.09)
+ * textStretch.js 0.9 (2013.12.10)
  *
  * Copyright (c) 2012, 2013 Albin Larsson (mail@albinlarsson.com)
  * Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
@@ -8,10 +8,10 @@
 (function ($) {
 	"use strict";
 	// add class for calculating width. let me know if you see this and know a better way (excluding insert/addRule)
-	$("<style>.textStretch-calc { display: inline-block !important; *display: inline !important; white-space: nowrap !important; width: auto !important; padding:0 !important; text-align: left !important; }</style>").appendTo("head");
+	$("<style>.textStretch-calc { display: inline-block !important; *display: inline !important; white-space: nowrap !important; width: auto !important; padding:0 !important; text-align: left !important; font-size:100px !important }</style>").appendTo("head");
 
 	$.fn.textStretch = function (options) {
-		var _settings, _useElementWidth, _letterAverage, _fontSize, _width, _i, _recalc, element;
+		var _settings, _useElementWidth, _fontSize, _width, _i, _recalc, element;
 
 		// import user settings/arguments
 		_settings = $.extend($.textStretch.defaults, options);
@@ -28,10 +28,6 @@
 		// no width specified. use element width (doesn't work for for inline or inline-blocks)
 		_useElementWidth = (_settings.width === 0);
 
-		function _getStyle(elem, prop, camelProp) {
-			return elem.currentStyle ? elem.currentStyle[camelProp] : window.getComputedStyle(elem, null).getPropertyValue(prop);
-		}
-
 		function _textStretch(elements) {
 			for (_i = 0; _i < elements.length; _i += 1) {
 				element = elements[_i];
@@ -42,11 +38,11 @@
 				// temporarily apply class for measuring width
 				element.className += " textStretch-calc";
 
-				// width of text relative to font
-				_letterAverage = element.clientWidth / (parseInt(_getStyle(element, "font-size", "fontSize"), 10));
+				// calculate new font size. 100 is the font-size
+				_fontSize = parseInt(_width / (element.clientWidth / 100), 10);
 
-				// overwritten unless within specified font-size span
-				_fontSize = Math.min(Math.max(parseInt(_width / _letterAverage, 10), _settings.minFontSize), _settings.maxFontSize);
+				// overdefine if not within specified font-size span
+				_fontSize = Math.min(Math.max(_fontSize, _settings.minFontSize), _settings.maxFontSize);
 
 				// apply font-size
 				element.style.fontSize = _fontSize + "px";
