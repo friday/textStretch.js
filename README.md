@@ -2,7 +2,7 @@
 
 A jQuery extension for stretching a text to the width of the element.
 
-textStretch.js is minimal, fast, robust, doesn't require or add any wrappers or children, and it just works!
+textStretch.js is minimal, fast and yet robust. It also doesn't require or add any wrappers or children. And it just works!
 
 ### Requirements
 textStretch requires jQuery 1.7 or later for events (browser window rescale).
