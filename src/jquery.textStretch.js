@@ -1,4 +1,3 @@
-/* global jQuery */
 (function ($, defaults) {
 	"use strict";
 	var _eventIsBound = false, _i, _j, _recalc, _settings = {}, _watch = {elements: [], settings: []};

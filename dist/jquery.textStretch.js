@@ -1,12 +1,11 @@
 /*!
- * textStretch.js v0.9.2 (2013-12-16)
+ * textStretch.js v1.0.0 (2013-12-16)
  * https://github.com/friday/textStretch.js
  *
  * Copyright (c) 2012 - 2013 Albin Larsson
  * Released under the MIT licence: http://www.opensource.org/licenses/mit-license.php
  */
 
-/* global jQuery */
 (function ($, defaults) {
 	"use strict";
 	var _eventIsBound = false, _i, _j, _recalc, _settings = {}, _watch = {elements: [], settings: []};
