@@ -63,5 +63,5 @@ $(".stretch-no-max").textStretch({maxFontSize: 0});
 * Apply `white-space: nowrap` to the element if you want to avoid it from temporarily line-breaking while the window is scaled down.
 * Fonts are sometimes drawn outside of their specified width. It's a font feature, and not a bug in textStretch. If can be avoided using using a `margin` specified with the `em` unit (see index.html).
 
-## How it works (techy)
-textStretch temporarily applied some css to your elements to get their text widths. That width is then used in relation to the box width to calculate and set a new font-size.
+## How it actually works
+textStretch temporarily applied some css to make your elements inline-blocks. Then it can get the text-width. That width is then used in relation to the box width to calculate and set a new font-size.
