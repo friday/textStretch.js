@@ -1,6 +1,6 @@
 {
   "name": "textStretch.js",
-  "version": "0.9.3",
+  "version": "1.0.0",
   "description": "A javascript function and a jQuery extension for maximizing font sizes to fill out the element's width.",
   "author": "Albin Larsson",
   "license": "MIT",
