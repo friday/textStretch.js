@@ -1,0 +1,23 @@
+{
+  "name": "textStretch.js",
+  "version": "0.9.3",
+  "description": "A javascript function and a jQuery extension for maximizing font sizes to fill out the element's width.",
+  "author": "Albin Larsson",
+  "license": "MIT",
+  "dependencies": {
+    "grunt": "latest",
+    "grunt-cli": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-preprocess": "latest",
+    "grunt-release": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/friday/textStretch.js"
+  },
+  "bugs": {
+    "url": "https://github.com/friday/textStretch.js/issues"
+  }
+}
