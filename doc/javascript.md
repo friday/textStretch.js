@@ -7,8 +7,8 @@ textStretch.js is minimal, fast and robust. It doesn't require or add any wrappe
 textStretch is build with older browsers in mind. It's tested and works with Chrome, Safari, Firefox and Internet Explorer (I haven't tested any version older than 6 though). If you can find a browser it doesn't work with, please contact me.
 
 ## Download
-[minified](../dist/textStretch.min.js)<br/>
-[uncompressed](../dist/textStretch.js)
+[minified](http://albinlarsson.com/textStretch.js/dist/textStretch.min.js)<br/>
+[uncompressed](http://albinlarsson.com/textStretch.js/dist/textStretch.js)
 
 ## How to use
 
