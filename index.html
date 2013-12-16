@@ -1,59 +1,130 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>Textstretch.js by friday</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Textstretch.js : A javascript function and a jQuery extension for maximizing font sizes to fill out the element's width." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Textstretch.js</title>
   </head>
 
   <body>
-    <div id="container">
-      <div class="inner">
 
-        <header>
-          <h1>Textstretch.js</h1>
-          <h2>A javascript function and a jQuery extension for maximizing font sizes to fill out the element's width.</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/friday/textStretch.js">View on GitHub</a>
+
+          <h1 id="project_title">Textstretch.js</h1>
+          <h2 id="project_tagline">A javascript function and a jQuery extension for maximizing font sizes to fill out the element's width.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/friday/textStretch.js/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/friday/textStretch.js/tarball/master">Download this project as a tar.gz file</a>
+            </section>
         </header>
+    </div>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/friday/textStretch.js/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/friday/textStretch.js/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/friday/textStretch.js" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h1>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
 <a name="textstretchjs" class="anchor" href="#textstretchjs"><span class="octicon octicon-link"></span></a>textStretch.js</h1>
 
 <p>A javascript function and a jQuery extension for maximizing font sizes to fill out the element's width.</p>
 
 <p>textStretch.js is minimal, fast and robust. It doesn't require or add any wrappers or child-elements, and it adapts to when you resize the window or flip your device.</p>
 
-<p>textStretch is build with older browsers in mind. It's tested and works with Chrome, Safari, Firefox and Internet Explorer (I haven't tested any version older than 6 though). If you can find a browser it doesn't work with, please contact me.</p>
+<p>textStretch is build with older browsers in mind. It's tested and works with Chrome, Safari, Firefox and Internet Explorer (I haven't tested any version older than 6 though).</p>
+
+<h2>
+<a name="jquery-version" class="anchor" href="#jquery-version"><span class="octicon octicon-link"></span></a>jQuery version</h2>
+
+<p>The rest of this documentation will cover the jQuery-version. <a href="https://github.com/friday/textStretch.js/blob/master/doc/javascript.md">Click here to go to the javascript-version documentation</a>.</p>
+
+<h2>
+<a name="download-just-the-script" class="anchor" href="#download-just-the-script"><span class="octicon octicon-link"></span></a>Download just the script</h2>
+
+<p><a href="http://albinlarsson.com/textStretch.js/dist/jquery.textStretch.min.js">minified</a><br><a href="http://albinlarsson.com/textStretch.js/dist/jquery.textStretch.js">uncompressed</a></p>
 
 <h3>
-<a name="for-further-documentation-pick-the-version-you-want-to-use" class="anchor" href="#for-further-documentation-pick-the-version-you-want-to-use"><span class="octicon octicon-link"></span></a>For further documentation, pick the version you want to use:</h3>
+<a name="how-to-use-jquery-version" class="anchor" href="#how-to-use-jquery-version"><span class="octicon octicon-link"></span></a>How to use (jQuery version)</h3>
+
+<p>Load jQuery (1.7 or later) and the script</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"jquery.textStretch.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<p>...and apply textStretch to your element(s)</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">".stretch"</span><span class="p">).</span><span class="nx">textStretch</span><span class="p">();</span>
+</pre></div>
+
+<p>It's that easy!</p>
 
 <h3>
-<a name="jquery-regular-javascript" class="anchor" href="#jquery-regular-javascript"><span class="octicon octicon-link"></span></a><a href="doc/jquery.md">jQuery</a> <br><a href="doc/javascript.md">Regular javascript</a>
-</h3>
-        </section>
+<a name="arguments" class="anchor" href="#arguments"><span class="octicon octicon-link"></span></a>Arguments</h3>
 
-        <footer>
-          Textstretch.js is maintained by <a href="https://github.com/friday">friday</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+<p>There are two optional argumets: <code>maxFontSize</code> and <code>minFontSize</code>. They're both disabled (<code>0</code>) by default.</p>
 
-                  <script type="text/javascript">
+<h4>
+<a name="this-is-how-theyre-used" class="anchor" href="#this-is-how-theyre-used"><span class="octicon octicon-link"></span></a>This is how they're used</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// minimum font size</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">".stretch"</span><span class="p">).</span><span class="nx">textStretch</span><span class="p">({</span><span class="nx">minFontSize</span><span class="o">:</span> <span class="mi">12</span><span class="p">});</span>
+</pre></div>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// min &amp; max font-size</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">".stretch"</span><span class="p">).</span><span class="nx">textStretch</span><span class="p">({</span><span class="nx">minFontSize</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span> <span class="nx">maxFontSize</span><span class="o">:</span> <span class="mi">60</span><span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="changing-the-defaults" class="anchor" href="#changing-the-defaults"><span class="octicon octicon-link"></span></a>Changing the defaults</h3>
+
+<p>The default min &amp; max font-sizes can be changed this way</p>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// setting default max font size</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">textStretch</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">maxFontSize</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</pre></div>
+
+<p>Future calls will use the new default</p>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// max font size will be 100 pixels, as defined above</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">".stretch"</span><span class="p">).</span><span class="nx">textStretch</span><span class="p">();</span>
+</pre></div>
+
+<p>Unless...</p>
+
+<div class="highlight highlight-javascript"><pre><span class="c1">// disable maxFontSize for this call</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">".stretch-no-max"</span><span class="p">).</span><span class="nx">textStretch</span><span class="p">({</span><span class="nx">maxFontSize</span><span class="o">:</span> <span class="mi">0</span><span class="p">});</span>
+</pre></div>
+
+<h2>
+<a name="good-to-know" class="anchor" href="#good-to-know"><span class="octicon octicon-link"></span></a>Good to know</h2>
+
+<ul>
+<li>If using web fonts: Call from window.load (not document.ready) to be sure the font loads first.</li>
+<li>Elements with <code>display: inline</code> (or <code>display: inline-block</code> without a specified width) will not stretch, because they have no width.</li>
+<li>Calculations will break in some rare cases if you use the <code>!important</code> css rule.</li>
+<li>Apply <code>white-space: nowrap</code> to the element if you want to avoid it from temporarily line-breaking while the window is scaled down.</li>
+<li>Fonts are sometimes drawn outside of their specified width. It's a font feature, and not a bug in textStretch. If can be avoided using using a <code>margin</code> specified with the <code>em</code> unit (see index.html).</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Textstretch.js maintained by <a href="https://github.com/friday">friday</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -64,7 +135,6 @@
             } catch(err) {}
           </script>
 
-      </div>
-    </div>
+
   </body>
 </html>
