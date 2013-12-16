@@ -5,25 +5,26 @@
 		<style>
 			body {
 				background-color: #333;
-				padding: 10px 20px;
+				margin: 10px 20px;
 			}
 			.stretch {
 				margin: 0 auto;
-				white-space: nowrap;
+				white-space: nowrap; /* this not needed, but it looks better when you scale down the window */
 			}
-			.fascinate { font-family: Fascinate; color: #3a7483; text-shadow: .025em .025em #7b90a3; }
+			.fascinate { font-family: Fascinate; color: #8a4e4e; text-shadow: .025em .025em #c0b5ad; }
 			.monoton { font-family: Monoton; color: #63833a; text-shadow: .03em .03em #c5e98f; }
 			.lobster { font-family: Lobster; color: rgba(172, 123, 61, 0.66); text-shadow: .035em .035em #cebe97; }
-			.miniver { font-family: Miniver; color: #a2402d; text-shadow: .03em .03em #ac8e6e; }
+			/* using margin-right to make the font fit. */
+			.miniver { font-family: Miniver; color: #a2402d; text-shadow: .03em .03em #ac8e6e; margin-right: .05em; }
 		</style>
 	</head>
 	<body>
-		<p class="fascinate stretch">Lorem ipsum</p>
+		<p id="lorem" class="fascinate stretch">Lorem ipsum</p>
 		<p class="monoton stretch">dolor sit amet</p>
 		<p class="lobster stretch">consectetur adipiscing elit</p>
 		<p class="miniver stretch">Donec ut diam a est</p>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-		<script src="jquery.textStretch.js"></script>
+		<script src="../dist/jquery.textStretch.min.js"></script>
 		<script>
 			$(window).load(function () {
 				$(".stretch").textStretch();
