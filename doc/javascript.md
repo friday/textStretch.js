@@ -4,7 +4,7 @@ A javascript function for maximizing font sizes to fill out the element's width.
 
 textStretch.js is minimal, fast and robust. It doesn't require or add any wrappers or child-elements, and it adapts to when you resize the window or flip your device.
 
-textStretch is build with older browsers in mind. It's tested and works with Chrome, Safari, Firefox and Internet Explorer (I haven't tested any version older than 6 though). If you can find a browser it doesn't work with, please contact me.
+textStretch is build with older browsers in mind. It's tested and works with Chrome, Safari, Firefox and Internet Explorer (I haven't tested any version older than 6 though).
 
 ## Download
 [minified](http://albinlarsson.com/textStretch.js/dist/textStretch.min.js)<br/>
